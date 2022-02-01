@@ -17,3 +17,13 @@ ElasticSearch Cheat Sheet with the most needed stuff..
 ```
 curl http://localhost:9200/_aliases
 ```
+
+
+<br><br>
+
+
+
+# Create Index
+```
+curl -X PUT localhost:9200/name
+```
