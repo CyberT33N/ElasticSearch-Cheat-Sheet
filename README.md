@@ -18,6 +18,14 @@ ElasticSearch Cheat Sheet with the most needed stuff..
 curl http://localhost:9200/_aliases
 ```
 
+<br><br>
+
+## List specific Index
+```
+curl http://localhost:9200/indexNameHere
+```
+
+
 
 <br><br>
 
