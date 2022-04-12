@@ -23,7 +23,15 @@ curl http://localhost:9200/_aliases
 
 
 
-# Create Index
+## Create Index
 ```
 curl -X PUT localhost:9200/name
+```
+
+<br><br>
+
+
+## Delete all indexes
+```
+curl -X DELETE 'http://localhost:9200/_all'
 ```
