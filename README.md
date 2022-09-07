@@ -45,6 +45,14 @@ curl -X DELETE 'http://localhost:9200/_all'
 ```
 
 
+<br><br>
+
+
+## Delete specific indexes
+```
+curl -X DELETE 'http://localhost:9200/test_0_c'
+```
+
 
 
 
