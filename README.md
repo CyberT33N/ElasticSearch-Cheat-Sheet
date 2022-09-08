@@ -4,6 +4,15 @@ ElasticSearch Cheat Sheet with the most needed stuff..
 
 
 
+# Aliases
+
+<br><br>
+
+## List all Aliases
+```
+curl http://localhost:9200/_aliases
+```
+
 
 
 
@@ -11,12 +20,6 @@ ElasticSearch Cheat Sheet with the most needed stuff..
 
 # Indexes
 
-<br><br>
-
-## List all Indexes
-```
-curl http://localhost:9200/_aliases
-```
 
 <br><br>
 
