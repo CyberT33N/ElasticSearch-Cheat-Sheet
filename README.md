@@ -24,6 +24,7 @@ __________________________________________
 ## List all Aliases
 ```
 curl http://localhost:9200/_aliases
+# GET _cat/aliases
 ```
 
 
@@ -37,7 +38,14 @@ __________________________________________
 
 
 
-# Indexes
+# Indices
+
+<br><br>
+
+## List all Indices
+```
+# GET _cat/indices
+```
 
 
 <br><br>
@@ -61,7 +69,7 @@ curl -X PUT localhost:9200/name
 <br><br>
 
 
-## Delete all indexes
+## Delete all indices
 ```
 curl -X DELETE 'http://localhost:9200/_all'
 ```
