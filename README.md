@@ -79,6 +79,7 @@ curl -X DELETE 'http://localhost:9200/_all'
 
 
 ## Delete specific indexes
+- **When you delete an index then alle aliases related will be deleted aswell!**
 ```
 curl -X DELETE 'http://localhost:9200/test_0_c'
 ```
