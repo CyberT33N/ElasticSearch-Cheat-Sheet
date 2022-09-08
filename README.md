@@ -4,6 +4,19 @@ ElasticSearch Cheat Sheet with the most needed stuff..
 
 
 
+# Kibana
+- GUI for working with elastic search
+- http://127.0.0.1:5601/
+
+
+
+<br><br>
+__________________________________________
+__________________________________________
+<br><br>
+
+
+
 # Aliases
 
 <br><br>
@@ -13,6 +26,12 @@ ElasticSearch Cheat Sheet with the most needed stuff..
 curl http://localhost:9200/_aliases
 ```
 
+
+
+<br><br>
+__________________________________________
+__________________________________________
+<br><br>
 
 
 
