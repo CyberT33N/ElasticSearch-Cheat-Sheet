@@ -106,11 +106,21 @@ ________________________________________________________________________________
 
 # Search
 
+<br><br>
+
 ## show all data
 ```Bash
 http://localhost:9200/test_0_c/_search
 ```
 
+
+<br><br>
+
+## show specific data
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html
+```Bash
+GET /my-index-000001/_search
+```
 
 
 
