@@ -108,18 +108,26 @@ ________________________________________________________________________________
 
 <br><br>
 
-## show all data
+## search all data (https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html)
+- Notice there is a limit of max documents
 ```Bash
+# HTTP
 http://localhost:9200/test_0_c/_search
+
+# Kibana
+GET /my-index-000001/_search
 ```
 
 
 <br><br>
 
-## show specific data
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html
+## search specific document
 ```Bash
-GET /my-index-000001/_search
+# Kibana
+POST /test_1234_c/_search/
+{ "query": {"match": {
+  "customer.kundeVorname": "test"
+}} }
 ```
 
 
