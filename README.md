@@ -10,6 +10,15 @@ ElasticSearch Cheat Sheet with the most needed stuff..
 
 
 
+
+
+
+
+
+
+
+
+
 <br><br>
 __________________________________________
 __________________________________________
@@ -26,6 +35,24 @@ __________________________________________
 curl http://localhost:9200/_aliases
 # GET _cat/aliases
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -98,6 +125,12 @@ curl -X DELETE 'http://localhost:9200/test_0_c'
 
 
 
+
+
+
+
+
+
 <br><br>
 __________________________________________________________________________________________
 __________________________________________________________________________________________
@@ -121,7 +154,7 @@ GET /my-index-000001/_search
 
 <br><br>
 
-## search specific document
+## search specific document with query
 ```Bash
 # Kibana
 POST /test_1234_c/_search/
@@ -133,7 +166,11 @@ POST /test_1234_c/_search/
 
 
 
-
+## Search specific document by id
+- Also works with events
+```shell
+GET /indexName/_doc/docIdHere
+```
 
 
 
