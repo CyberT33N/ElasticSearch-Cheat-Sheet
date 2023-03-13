@@ -99,6 +99,9 @@ curl -X PUT localhost:9200/name
 ## Delete all indices
 ```
 curl -X DELETE 'http://localhost:9200/_all'
+
+# Kibana Dev Tools
+DELETE _all
 ```
 
 
