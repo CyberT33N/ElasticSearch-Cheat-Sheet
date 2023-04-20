@@ -97,6 +97,7 @@ curl -X PUT localhost:9200/name
 
 
 ## Delete all indices
+- Be carefully to run this, because it will also delete the kibana indixes which are needed to deploy kibana
 ```
 curl -X DELETE 'http://localhost:9200/_all'
 
@@ -112,6 +113,9 @@ DELETE _all
 - **When you delete an index then alle aliases related will be deleted aswell!**
 ```
 curl -X DELETE 'http://localhost:9200/test_0_c'
+
+# Kibana Dev Tools
+DELETE IndexNameHere
 ```
 
 
