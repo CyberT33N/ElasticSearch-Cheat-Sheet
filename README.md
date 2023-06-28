@@ -92,6 +92,17 @@ curl http://localhost:9200/indexNameHere
 ```
 curl -X PUT localhost:9200/name
 ```
+```
+PUT /my-index-000001
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,  
+      "number_of_replicas": 0 
+    }
+  }
+}
+```
 
 <br><br>
 
