@@ -429,3 +429,88 @@ curl -XPOST -H 'Content-Type: application/json' localhost:9200/test_0_c/_bulk --
         headers, validateStatus: status => status < 600
     })
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+__________________________________________
+__________________________________________
+<br><br>
+
+
+# Sync MongoDB with Es
+```
+import mongoose from 'mongoose'
+import mongoosastic from 'mongoosastic'
+import { Client } from '@elastic/elasticsearch';
+
+// Elasticsearch-Verbindung konfigurieren
+const esClient = new Client({ node: 'http://ms-platform:30920' });
+const indexName = 'my-index-000001';
+
+// MongoDB-Verbindung herstellen
+await mongoose.connect('mongodb://root:xxxxxxxxxxxxxxxxxx@127.0.0.1:37227/test?replicaSet=rs0&authSource=admin&readPreference=primary&directConnection=true');
+
+// MongoDB-Schema definieren
+const { Schema } = mongoose
+const TestSchema = new Schema({
+  name: String
+})
+
+// ElasticSearch-Plugin hinzufügen
+TestSchema.plugin(mongoosastic, {
+  esClient: esClient,
+  index: indexName
+});
+
+// MongoDB-Modell erstellen
+const Test = mongoose.model('Test', TestSchema);
+
+// Neues Dokument erstellen
+const newDocument = new Test({
+  name: 'lisa'
+});
+
+// Dokument in MongoDB speichern
+await newDocument.save();
+
+newDocument.on('es-indexed', function(err, res){
+  if (err) throw err;
+  /* Document is indexed */
+});
+
+// Das Dokument aktualisieren
+const updatedDoc = await Test.findOneAndUpdate({ name: 'lisa' }, { name: 'lisa2' }, { new: true });
+
+console.log('Dokument erfolgreich aktualisiert:', updatedDoc);
+```
+
