@@ -307,34 +307,12 @@ ________________________________________________________________________________
 
 # create
 
-
 ## Method #1
 ```javascript
-/**
- * 
- * @param {string} filePath 
- * @param {string} projectId 
- * @param {string} prefix 
- * @returns {Promise}
- */
-const bulkImportEs = async (filePath, projectId, prefix) => {
-    const index = `a_${projectId}_${prefix}`
-    console.log('bulkImportEs() - index: ', index)
-
-    const data = await fs.readFile(filePath)
-    
-    const res = await client.bulk({
-        index,
-        body: data
-    })
-
-    if (res.errors) {
-        throw new ValidationError('bulkImportEs() - res', { res })
-    }
-
-    console.log('bulkImportEs() - res: ', res)
-}
+const res = await client.index({ index, body })
 ```
+
+<br><br>
 
 ## Method #2
 ```javascript
@@ -471,6 +449,33 @@ ________________________________________________________________________________
 ## POST with Binary File at Elastic Search
 ```Bash
 curl -XPOST -H 'Content-Type: application/json' localhost:9200/test_0_c/_bulk --data-binary @src/test-c-1.json
+```
+
+```javascript
+/**
+ * 
+ * @param {string} filePath 
+ * @param {string} projectId 
+ * @param {string} prefix 
+ * @returns {Promise}
+ */
+const bulkImportEs = async (filePath, projectId, prefix) => {
+    const index = `a_${projectId}_${prefix}`
+    console.log('bulkImportEs() - index: ', index)
+
+    const data = await fs.readFile(filePath)
+    
+    const res = await client.bulk({
+        index,
+        body: data
+    })
+
+    if (res.errors) {
+        throw new ValidationError('bulkImportEs() - res', { res })
+    }
+
+    console.log('bulkImportEs() - res: ', res)
+}
 ```
 
 ```javascript
