@@ -129,7 +129,30 @@ curl -X DELETE 'http://localhost:9200/test_0_c'
 DELETE IndexNameHere
 ```
 
+<br><br>
 
+```javascript
+/**
+ * 
+ * @param {*} projectId 
+ * @returns
+ */
+const deleteIdx = async projectId => {
+    const indices = [`a_${projectId}j0`, `a_${projectId}d0`]
+
+    console.log('List of available Indices: ', indices)
+
+    for (const index of indices) {
+        try {
+            console.log(`We delete now Index: ${index}`)
+            await client.indices.delete({ index })
+            console.log(`Index ${index} wurde gelöscht.`)
+        } catch (e) {
+            console.error(`Fehler beim Löschen des Index ${index}: ${e}`)
+        }
+    }
+}
+```
 
 
 
@@ -283,6 +306,37 @@ ________________________________________________________________________________
 <br><br>
 
 # create
+
+
+## Method #1
+```javascript
+/**
+ * 
+ * @param {string} filePath 
+ * @param {string} projectId 
+ * @param {string} prefix 
+ * @returns {Promise}
+ */
+const bulkImportEs = async (filePath, projectId, prefix) => {
+    const index = `a_${projectId}_${prefix}`
+    console.log('bulkImportEs() - index: ', index)
+
+    const data = await fs.readFile(filePath)
+    
+    const res = await client.bulk({
+        index,
+        body: data
+    })
+
+    if (res.errors) {
+        throw new ValidationError('bulkImportEs() - res', { res })
+    }
+
+    console.log('bulkImportEs() - res: ', res)
+}
+```
+
+## Method #2
 ```javascript
  const index = 'test_7677_c'
 const id = uuidv4()
