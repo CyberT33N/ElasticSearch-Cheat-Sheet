@@ -33,7 +33,8 @@ __________________________________________
 ## List all Aliases
 ```
 curl http://localhost:9200/_aliases
-# GET _cat/aliases
+# GET _cat/aliases?v
+# GET /_cat/aliases?v
 ```
 
 
@@ -307,16 +308,24 @@ ________________________________________________________________________________
 
 # create
 
-## Method #1
-```javascript
-const res = await client.index({ index, body })
+```
+POST /ais_7677_c/_doc/
+{
+  "field1": "Wert7",
+  "field2": "Wert8"
+}
 ```
 
 <br><br>
 
-## Method #2
+## Method #1
 ```javascript
- const index = 'test_7677_c'
+// Method #1
+const res = await client.index({ index, body })
+
+
+// Method #2
+const index = 'test_7677_c'
 const id = uuidv4()
 
 let dataset = {
@@ -325,6 +334,7 @@ let dataset = {
 
 const res = await client.create({ index, id, body: dataset })
 ```
+
 
 
 
