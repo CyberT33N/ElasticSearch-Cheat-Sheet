@@ -247,7 +247,8 @@ ________________________________________________________________________________
 <br><br>
 
 ## search all data (https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html)
-- Notice there is a limit of max documents
+- Notice there is a limit of max 10k documents for hits count
+  - https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html
 ```Bash
 # HTTP
 http://localhost:9200/test_0_c/_search
@@ -269,6 +270,26 @@ POST /test_1234_c/_search/
 ```
 
 
+
+<br><br>
+
+## search with size and from (pagination)
+```Bash
+# es npm
+const query = {
+  size: "25",
+  from: "0",
+  query: {
+    match_all: {
+    },
+  },
+}
+
+const queryResult = await elastic.rawQuery(query, 'your_index')
+```
+
+
+<br><br>
 
 
 ## Search specific document by id
@@ -382,6 +403,7 @@ const res = await client.create({ index, id, body: dataset })
 
 
 
+
 <br><br>
 __________________________________________________________________________________________
 __________________________________________________________________________________________
@@ -404,6 +426,57 @@ POST /yourIndexHere/_update/docIdHere
     ]
   }
 }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+__________________________________________________________________________________________
+__________________________________________________________________________________________
+
+<br><br>
+
+# delete
+
+<br><br>
+
+## delete specific documents by query
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html
+```javascript
+POST /ai_8000_ca/_delete_by_query
+{
+  "query": {
+    "match": {
+      "status": "active"
+    }
+  }
+}
+
 ```
 
 
