@@ -72,7 +72,17 @@ __________________________________________
 
 ## List all Indices
 ```
-# GET _cat/indices
+# Kibana
+GET _cat/indices
+
+# Node.js
+ const stats = await client.indices.stats({
+    index: "_all",
+    level: "indices"
+})
+
+const currentIndices = Object.keys(stats.indices)
+console.log('currentIndices: ', currentIndices)
 ```
 
 
