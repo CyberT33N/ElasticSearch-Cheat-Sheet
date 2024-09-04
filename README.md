@@ -308,6 +308,10 @@ const queryResult = await elastic.rawQuery(query, 'your_index')
 ## Search specific document by id
 - Also works with events
 ```shell
+# ES
+- curl -X GET "http://localhost:9200/INDEX_NAME/_doc/c5bdaca5-f73a-4b86-9b49-696aae7fd704"
+
+# Kibana
 GET /indexName/_doc/docIdHere
 ```
 
