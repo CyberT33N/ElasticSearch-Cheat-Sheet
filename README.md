@@ -263,8 +263,8 @@ ________________________________________________________________________________
 - Notice there is a limit of max 10k documents for hits count
   - https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html
 ```Bash
-# HTTP
-http://localhost:9200/test_0_c/_search
+# ES
+curl -X GET "http://localhost:9200/ais_0c0/_search"
 
 # Kibana
 GET /my-index-000001/_search
