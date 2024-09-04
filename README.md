@@ -72,6 +72,9 @@ __________________________________________
 
 ## List all Indices
 ```
+# Elastic search
+curl -X GET "http://localhost:9200/_cat/indices?v"
+
 # Kibana
 GET _cat/indices
 
