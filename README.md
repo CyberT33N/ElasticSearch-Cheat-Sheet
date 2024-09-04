@@ -433,6 +433,21 @@ ________________________________________________________________________________
 
 ## update specific value in document
 ```javascript
+# ES
+curl -X POST "http://localhost:9200/ais_0c0/_update/1f24bd1d-e470-4400-9d2e-34223083a93d" -H 'Content-Type: application/json' -d'
+{
+  "doc": {
+    "permissions": [
+    {
+    "createdAt":"2011-12-17T11:06:26.240Z",
+    "allowed":true,
+    "id":"60ec3b94dc86a75a51111910",
+    "grantedAt":"2020-12-17T11:35:53.906Z"
+    }]
+  }
+}'
+
+# KIBANA
 POST /yourIndexHere/_update/docIdHere
 {
   "doc": {
