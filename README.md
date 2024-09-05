@@ -89,12 +89,24 @@ console.log('currentIndices: ', currentIndices)
 ```
 
 
+
+
 <br><br>
 
 ## List specific Index
 ```
 curl http://localhost:9200/indexNameHere
 ```
+
+<br><br>
+
+## List specific indices via wildcard
+```
+# ES
+curl -X GET localhost:9200/_cat/indices/.kibana*?v
+```
+
+
 
 
 
